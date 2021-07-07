@@ -1,6 +1,10 @@
 import sys
 sys.path.insert(0, './yolov5')
 
+# 如果没有下面这个设置会出现这个错误：OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized.
+import os
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
+
 from yolov5.utils.google_utils import attempt_download
 from yolov5.models.experimental import attempt_load
 from yolov5.utils.datasets import LoadImages, LoadStreams
